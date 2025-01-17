@@ -172,7 +172,7 @@ loss, accuracy = model.evaluate(X_test, y_test)
 print(f'Test accuracy: {accuracy:.4f}')
 
 # 5. Save Model
-model.save('path_matching_model556699.keras')
+model.save('path_matching_model121212.keras')
 
 # 6. Inference
 def predict_path_group(new_path, model):
@@ -185,8 +185,3 @@ def predict_path_group(new_path, model):
     predicted_group = np.argmax(probabilities, axis=1)[0]
     return predicted_group
 
-loaded_model = tf.keras.models.load_model('path_matching_model556699.keras')
-example_path_dataframe = pd.read_csv("./data/compiled/1/4.csv")  # Replace with an actual test file
-example_path = example_path_dataframe[['x', 'y']].values.tolist()
-prediction = predict_path_group(example_path, loaded_model)
-print(f"Predicted path group: {prediction}")
